@@ -1,5 +1,6 @@
 const ulTag = document.querySelector("ul")
 
+// ulTag.innerHTML = element(totalPages,page)
 function element(totalPages,page) {
     let liTag = ''
     let activeLi;
@@ -31,7 +32,7 @@ function element(totalPages,page) {
         afterPage=afterPage+1
     }
 
-    for (let pageLength = beforePage; pageLength <= afterPage; pageLength++) {
+    for (var pageLength = beforePage; pageLength <= afterPage; pageLength++) {
         if (pageLength>totalPages) {
             continue
         }
@@ -39,6 +40,7 @@ function element(totalPages,page) {
         if (pageLength==0) {
             pageLength = pageLength+1
         }
+
         if(page==pageLength){
             activeLi = 'active';
         }
@@ -49,7 +51,7 @@ function element(totalPages,page) {
     }
 
     if (page<totalPages-1) {
-        if (page>totalPages-2) {      
+        if (page<totalPages-2) {      
             liTag+=` <li class="dots"><span>...</span></li>`
         }   
         liTag+=`<li class="numb" onclick="element(${totalPages},${totalPages})"><span>${totalPages}</span></li>`
